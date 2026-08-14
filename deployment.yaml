@@ -1,7 +1,8 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devsecops-demo-app
+  namespace: jenkins
 spec:
   replicas: 2
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
         - name: devsecops-demo-app
-          image: devsecops-demo-app:v1
-          imagePullPolicy: Never
+          image: registry.jenkins.svc.cluster.local:5000/devsecops-demo-app:v1
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
