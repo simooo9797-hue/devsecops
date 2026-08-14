@@ -69,6 +69,8 @@ pipeline {
                         - sleep
                         args:
                         - infinity
+                        securityContext:
+                          runAsUser: 0
                     '''
                 }
             }
